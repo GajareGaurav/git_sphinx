@@ -27,13 +27,10 @@ extensions = [
     'sphinx.ext.autodoc',  # Standard extension for autodocumenting code
     'sphinx.ext.viewcode',  # Extension for including source code in the documentation
     'sphinx.ext.napoleon',  # Extension for Google-style docstrings
-    'sphinx_selective_exclude.eager_only',  # Ensure "only" directive works correctly
-    'sphinx_selective_exclude.search_auto_exclude',  # Exclude documents from full-text search
-    'sphinx_selective_exclude.modindex_exclude',  # Exclude modules from indexes
     'sphinx_multiversion',  # Extension for multi-version documentation
 ]
 
-# Autodoc settings
+# Autodoc settings (mocking imports for external dependencies)
 autodoc_mock_imports = [
     'numpy', 'pandas', 'torch', 'tensorflow',  # Mock external dependencies
 ]
@@ -49,12 +46,6 @@ exclude_patterns = [
     '.DS_Store',
 ]
 
-# # Selective exclusion patterns using `sphinx_selective_exclude`
-# selective_exclude_patterns = [
-#     '**/onetru/ai/llm/model.py',  # Exclude the model.py file
-#     # Other patterns to exclude, if needed
-# ]
-
 # HTML theme
 html_theme = 'sphinx_rtd_theme'  # Theme for the documentation
 
@@ -65,4 +56,14 @@ smv_remote_whitelist = r'^.*$'     # Include all remotes
 smv_released_pattern = r'^.*$'     # Match all versions to release pattern
 smv_outputdir_format = '{ref.name}' # Versioned output directories
 
-# You can customize the format of the version dropdown by modifying your HTML layout if needed
+# Additional setting to include a version selector
+# Ensure that the versions dropdown appears in the documentation UI
+html_context = {
+    "current_version": "v1.0",  # Default version to display initially
+    "versions": [
+        {"name": "v1.0", "url": "/v1.0"},
+        {"name": "v2.0", "url": "/v2.0"},
+    ]
+}
+
+# You can also adjust the version selector placement in the HTML layout if needed (by modifying theme's templates)
