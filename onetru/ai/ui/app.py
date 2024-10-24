@@ -4,7 +4,7 @@ app.py - Handles the OneTru AI Workbench Agent functionality
 
 import chainlit as cl
 import requests
-from onetruai.ui.utils import handle_server_response
+from onetru.ai.ui.utils import handle_server_response
 
 @cl.on_chat_start
 async def chat_start():
