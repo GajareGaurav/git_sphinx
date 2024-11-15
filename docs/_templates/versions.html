@@ -1,28 +1,11 @@
-<div class="version-dropdown">
-  <label for="version-select">Version:</label>
-  <select id="version-select" onchange="window.location.href=this.value;">
-    {%- for version in smv_versions %}
-      <option value="{{ version.url }}" {% if version.is_current %}selected{% endif %}>
-        {{ version.name }}
-      </option>
-    {%- endfor %}
-  </select>
+<div class="sphinxsidebarwrapper">
+    <div class="sphinxsidebarheader">
+        <h3>Versions</h3>
+    </div>
+    <ul class="sphinxsidebarlist">
+        {% for version in versions %}
+            <li><a href="{{ version.url }}">{{ version.label }}</a></li>
+        {% endfor %}
+    </ul>
 </div>
 
-<style>
-  .version-dropdown {
-    margin-bottom: 20px;
-    font-family: Arial, sans-serif;
-  }
-
-  .version-dropdown label {
-    font-weight: bold;
-  }
-
-  .version-dropdown select {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 14px;
-  }
-</style>

@@ -20,8 +20,8 @@ extensions = [
 ]
 
 # Sphinx-multiversion specific settings
-smv_tag_whitelist = r'^0\.9\..*$'  # Only include tags starting with 0.9
-smv_branch_whitelist = r'^.*$'  # Include all branches
+smv_tag_whitelist = r'^0\.[0-9]+.*$'   # Only include t
+smv_branch_whitelist = r'^$'  # Include all branches
 smv_remote_whitelist = None  # Include all remotes
 smv_outputdir_format = '{ref.name}'  # Output format for versioned builds
 
