@@ -1,3 +1,6 @@
+import sphinx_multiversion
+sphinx_multiversion.__disable_file_exists_check__ = True
+
 import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
