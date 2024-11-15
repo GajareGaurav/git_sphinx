@@ -16,11 +16,11 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
     'sphinx.ext.napoleon',
-    'sphinx_multiversion'  # Add this line
+    'sphinx_multiversion'  # Add this line for multiversion support
 ]
 
 # Sphinx-multiversion specific settings
-smv_tag_whitelist = r'^.*$'  # Include all tags
+smv_tag_whitelist = r'^0\.9\..*$'  # Only include tags starting with 0.9
 smv_branch_whitelist = r'^.*$'  # Include all branches
 smv_remote_whitelist = None  # Include all remotes
 smv_outputdir_format = '{ref.name}'  # Output format for versioned builds
@@ -29,7 +29,7 @@ smv_outputdir_format = '{ref.name}'  # Output format for versioned builds
 templates_path = ['_templates']
 html_sidebars = {
     '**': [
-        'versions.html',
+        'versions.html',  # Add custom versions sidebar
     ],
 }
 
